@@ -119,6 +119,7 @@ buffer.seek(0)
 image_base64 = base64.b64encode(buffer.getvalue()).decode()
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 
 # App layout
 app.layout = html.Div([
