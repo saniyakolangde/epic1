@@ -12,7 +12,7 @@ from collections import defaultdict
 import requests
 import dash_bootstrap_components as dbc
 import pandas as pd
-from wordcloud import WordCloud
+#from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import io
 import base64
@@ -84,39 +84,39 @@ map_fig.update_traces(
     marker_line_width=0.8  # Adjust border thickness
 )
 
-query3 = "SELECT * FROM demographics"
-demographics_df = pd.read_sql(query3, conn)
-demographics_df['Country of Birth'] = demographics_df['Country of Birth'].apply(lambda x: x.replace(' ', '_'))
+# query3 = "SELECT * FROM demographics"
+# demographics_df = pd.read_sql(query3, conn)
+# demographics_df['Country of Birth'] = demographics_df['Country of Birth'].apply(lambda x: x.replace(' ', '_'))
 
-text = ' '.join(demographics_df['Country of Birth'].tolist())
+# text = ' '.join(demographics_df['Country of Birth'].tolist())
 
-def random_color_func(word, font_size, position, orientation, random_state=None, **kwargs):
-    hue = random.randint(0, 255) 
-    saturation = 100 
-    lightness = random.randint(10, 40)  # only darker colors
-    return f"hsl({hue}, {saturation}%, {lightness}%)"
+# def random_color_func(word, font_size, position, orientation, random_state=None, **kwargs):
+#     hue = random.randint(0, 255) 
+#     saturation = 100 
+#     lightness = random.randint(10, 40)  # only darker colors
+#     return f"hsl({hue}, {saturation}%, {lightness}%)"
 
 # Generate the word cloud with additional spacing and styling
-wordcloud = WordCloud(
-    width=450,
-    height=250,
-    background_color='white',
-    collocations=False,  # no overlapping words
-    prefer_horizontal=1.0,  # horizontal words
-    margin=12,  # space between words
-    #contour_width=1,  # Add a slight contour around the words
-    #contour_color='black',  # Set contour color to black
-    max_font_size=50,  #  maximum font size
-    min_font_size=13,
-    relative_scaling=0.5,
-    color_func=random_color_func  # random color functio
-).generate(text)
+# wordcloud = WordCloud(
+#     width=450,
+#     height=250,
+#     background_color='white',
+#     collocations=False,  # no overlapping words
+#     prefer_horizontal=1.0,  # horizontal words
+#     margin=12,  # space between words
+#     #contour_width=1,  # Add a slight contour around the words
+#     #contour_color='black',  # Set contour color to black
+#     max_font_size=50,  #  maximum font size
+#     min_font_size=13,
+#     relative_scaling=0.5,
+#     color_func=random_color_func  # random color functio
+# ).generate(text)
 
 
-buffer = io.BytesIO()
-wordcloud.to_image().save(buffer, format='PNG')
-buffer.seek(0)
-image_base64 = base64.b64encode(buffer.getvalue()).decode()
+# buffer = io.BytesIO()
+# wordcloud.to_image().save(buffer, format='PNG')
+# buffer.seek(0)
+# image_base64 = base64.b64encode(buffer.getvalue()).decode()
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server
@@ -126,10 +126,10 @@ app.layout = html.Div([
 #     html.H4("Common places humanitarian migrants come from", style={'textAlign': 'left', 'color': 'purple'}),
 #     html.Img(src=f'data:image/png;base64,{image_base64}', style={'width': '40%', 'height': '40%'})
 # ]),
-    html.Div([
-        html.H4("Common places humanitarian migrants come from", style={'textAlign': 'left', 'color': 'purple', 'marginBottom': '12px', 'marginTop': '13px'}),
-        html.Img(src=f'data:image/png;base64,{image_base64}', style={'width': '40%', 'height': 'auto', 'margin': '0 auto'})
-    ]),
+    # html.Div([
+    #     html.H4("Common places humanitarian migrants come from", style={'textAlign': 'left', 'color': 'purple', 'marginBottom': '12px', 'marginTop': '13px'}),
+    #     html.Img(src=f'data:image/png;base64,{image_base64}', style={'width': '40%', 'height': 'auto', 'margin': '0 auto'})
+    # ]),
     
     #Text section
     html.Div([
