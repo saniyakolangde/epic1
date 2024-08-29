@@ -132,20 +132,20 @@ app.layout = html.Div([
     # ]),
     
     #Text section
-    html.Div([
-        html.H6(
-            'Identify key areas in Melbourne where your culture community thrives.',
-            style={'textAlign': 'left', 'color': 'purple', 'fontSize': 16}
-        ),
-        html.H6(
-            'Get a clear view of where you can find and connect with others from your community',
-            style={'textAlign': 'left', 'color': 'purple', 'fontSize': 16}
-        ),
-        html.H6(
-            'Select your country option to see where people from your community reside.',
-            style={'textAlign': 'left', 'color': 'purple', 'fontSize': 16}
-        )
-    ], style={'marginBottom': '15px', 'marginTop': '9px', 'marginLeft': '9px'}),  # Added margin for spacing
+    # html.Div([
+    #     html.H6(
+    #         'Identify key areas in Melbourne where your culture community thrives.',
+    #         style={'textAlign': 'left', 'color': 'purple', 'fontSize': 16}
+    #     ),
+    #     html.H6(
+    #         'Get a clear view of where you can find and connect with others from your community',
+    #         style={'textAlign': 'left', 'color': 'purple', 'fontSize': 16}
+    #     ),
+    #     html.H6(
+    #         'Select your country option to see where people from your community reside.',
+    #         style={'textAlign': 'left', 'color': 'purple', 'fontSize': 16}
+    #     )
+    # ], style={'marginBottom': '15px', 'marginTop': '9px', 'marginLeft': '9px'}),  # Added margin for spacing
     
     # html.Div([
     #     dcc.Dropdown(
