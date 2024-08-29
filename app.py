@@ -300,8 +300,8 @@ def update_pie_chart(clickData, selected_country):
         total_count = csv_data[csv_data['Country'] == selected_country]['Count'].sum()
         city_count = filtered_data['Count'].sum()
 
-        total_text = f"Total Count of people from {selected_country}: {int(total_count)}"
-        city_text = f"Count of people from {selected_country} in {selected_region}: {int(city_count)}"
+        total_text = f"Total number of people from {selected_country} in Victoria: {int(total_count)}"
+        city_text = f"Total number of people from {selected_country} in {selected_region}: {int(city_count)}"
 
         if not top_languages:
             return {
@@ -325,7 +325,7 @@ def update_pie_chart(clickData, selected_country):
                 "values": values
             }],
             "layout": {
-                "title": f"Top 5 Languages in {selected_region}"
+                "title": f"Top 5 Languages in {selected_region} (excluding English)"
             }
         }, total_text, city_text
     else:
