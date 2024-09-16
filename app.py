@@ -30,17 +30,17 @@ from sqlalchemy import create_engine
 
 # Define your connection string
 connection_string = (
-    "mysql+pymysql://admin:password@database-ta02.cx2moqkoe6wp.ap-southeast-2.rds.amazonaws.com:3306/main_project_database"
+    "mysql+pymysql://admin:password@database-main.cx2moqkoe6wp.ap-southeast-2.rds.amazonaws.com:3306/harmonyHub"
 )
 # Create an SQLAlchemy engine
 engine = create_engine(connection_string)
 
 conn = pymysql.connect(
-        host = 'database-ta02.cx2moqkoe6wp.ap-southeast-2.rds.amazonaws.com',
+        host = 'database-main.cx2moqkoe6wp.ap-southeast-2.rds.amazonaws.com',
         port = 3306,
         user = 'admin',
         password = 'password',
-        db = 'main_project_database'
+        db = 'harmonyHub'
         )
 
 # Fetch data from the MySQL table
@@ -156,43 +156,7 @@ country_languages = {
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server
 # App layout
-app.layout = html.Div([
-#     html.Div([
-#     html.H4("Common places humanitarian migrants come from", style={'textAlign': 'left', 'color': 'purple'}),
-#     html.Img(src=f'data:image/png;base64,{image_base64}', style={'width': '40%', 'height': '40%'})
-# ]),
-    # html.Div([
-    #     html.H4("Common places humanitarian migrants come from", style={'textAlign': 'left', 'color': 'purple', 'marginBottom': '12px', 'marginTop': '13px'}),
-    #     html.Img(src=f'data:image/png;base64,{image_base64}', style={'width': '40%', 'height': 'auto', 'margin': '0 auto'})
-    # ]),
-    
-    #Text section
-    # html.Div([
-    #     html.H6(
-    #         'Identify key areas in Melbourne where your culture community thrives.',
-    #         style={'textAlign': 'left', 'color': 'purple', 'fontSize': 16}
-    #     ),
-    #     html.H6(
-    #         'Get a clear view of where you can find and connect with others from your community',
-    #         style={'textAlign': 'left', 'color': 'purple', 'fontSize': 16}
-    #     ),
-    #     html.H6(
-    #         'Select your country option to see where people from your community reside.',
-    #         style={'textAlign': 'left', 'color': 'purple', 'fontSize': 16}
-    #     )
-    # ], style={'marginBottom': '15px', 'marginTop': '9px', 'marginLeft': '9px'}),  # Added margin for spacing
-    
-    # html.Div([
-    #     dcc.Dropdown(
-    #         id='demo-dropdown',
-    #         options=[{'label': country, 'value': country} for country in ['', 'Afghanistan', 'Iran', 'Myanmar', 'Iraq', 'Pakistan', 'Thailand',
-    #             'Sri Lanka', 'Malaysia', 'India', 'Lebanon', 'Turkey', 'Cambodia',
-    #             'Egypt', 'Papua New Guinea', 'Indonesia']],
-    #         value='All'
-    #     ),
-    #     dcc.Graph(id='map', figure=map_fig)
-    # ]),
-    
+app.layout = html.Div([    
     html.Div([
         dcc.Dropdown(
             id='demo-dropdown',
@@ -201,52 +165,19 @@ app.layout = html.Div([
                     'Egypt', 'Papua New Guinea', 'Indonesia']],
             value='All'
         )], style={'width': '40%', 'marginRight': '20px'}),  # Dropdown width and margin to separate from the graph
-    
-    
-    # # Centering container for dropdown
+
     # html.Div([
-    #     dcc.Dropdown(
-    #         id='demo-dropdown',
-    #         options=[{'label': country, 'value': country} for country in ['', 'Afghanistan', 'Iran', 'Myanmar', 'Iraq', 'Pakistan', 'Thailand',
-    #                 'Sri Lanka', 'Malaysia', 'India', 'Lebanon', 'Turkey', 'Cambodia',
-    #                 'Egypt', 'Papua New Guinea', 'Indonesia']],
-    #         value='All'
-    #     )
-    # ], style={'width': '40%', 'margin': '0 auto'}),
+    #     dcc.Graph(id='map', figure=map_fig)]),
 
     html.Div([
-        dcc.Graph(id='map', figure=map_fig)]),
-    # html.Div([
-    #         dcc.Graph(id='map', figure=map_fig)])
-
-    # html.Div(id='total-count', style={'textAlign': 'center', 'fontSize': 20, 'marginTop': '20px'}),
-    # html.Div(id='city-count', style={'textAlign': 'center', 'fontSize': 20}),
+        dcc.Loading(
+            id="loading-spinner",
+            type="circle",  # Choose spinner type: 'default', 'circle', 'dot', 'cube', etc.
+            children=[dcc.Graph(id='map', figure=map_fig)],
+            fullscreen=True  # This will show a full-screen spinner
+        )
+    ]),
     
-    # html.Div([
-    #     dcc.Graph(id='language-pie-chart')
-    # ])
-    # Modal for displaying information
-    # dbc.Modal([
-    #     dbc.ModalHeader("Details", close_button=True, style={'fontSize': 20, 'marginLeft': '20px'}),
-    #     dbc.ModalBody([
-    #         html.Div(id='total-count', style={'fontSize': 15, 'marginLeft': '20px'}),
-    #         html.Div(id='city-count', style={'fontSize': 15, 'marginLeft': '20px'}),
-    #         dcc.Graph(id='language-pie-chart', style={'width': '100%', 'height': '300px', 'margin': 'auto'})
-    #     ]),
-    #     dbc.ModalFooter(
-    #         dbc.Button("x", id="close", className="ml-auto", style={'cursor': 'pointer', 'float': 'right', 'fontSize': '18px', 'color': '#666'})
-    #     )
-    # ], id="info-modal", is_open=False, style={
-    #     'position': 'fixed',
-    #     'bottom': '120px',
-    #     'right': '20px',
-    #     'width': '400px',
-    #     'padding': '15px',
-    #     'background': 'white',
-    #     'border': '1px solid #ddd',
-    #     'boxShadow': '0 0 10px rgba(0, 0, 0, 0.1)',
-    #     'zIndex': '1000'
-    # }),
     dbc.Modal([
         dbc.ModalHeader("Details"),
         dbc.ModalBody([
