@@ -185,8 +185,8 @@ app.layout = html.Div([
         children=[dcc.Graph(id='map', figure=map_fig)],
         fullscreen=True,  # Full-screen spinner
         style={
-            'fontSize': '50px',  # Increase size of the spinner
-            'color': '#343a40',  # Darker color (Bootstrap dark color)
+            'fontSize': '250px',  # Increase size of the spinner
+            'color': '#112840',  # Darker color (Bootstrap dark color)
             'display': 'flex',  # Use flex to center the spinner
             'alignItems': 'center',  # Center vertically
             'justifyContent': 'center'  # Center horizontally
