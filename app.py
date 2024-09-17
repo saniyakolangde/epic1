@@ -169,14 +169,31 @@ app.layout = html.Div([
     # html.Div([
     #     dcc.Graph(id='map', figure=map_fig)]),
 
+    # html.Div([
+    #     dcc.Loading(
+    #         id="loading-spinner",
+    #         type="circle",  # Choose spinner type: 'default', 'circle', 'dot', 'cube', etc.
+    #         children=[dcc.Graph(id='map', figure=map_fig)],
+    #         fullscreen=True  # This will show a full-screen spinner
+    #     )
+    # ]),
+
     html.Div([
-        dcc.Loading(
-            id="loading-spinner",
-            type="circle",  # Choose spinner type: 'default', 'circle', 'dot', 'cube', etc.
-            children=[dcc.Graph(id='map', figure=map_fig)],
-            fullscreen=True  # This will show a full-screen spinner
-        )
-    ]),
+    dcc.Loading(
+        id="loading-spinner",
+        type="circle",  # Choose spinner type
+        children=[dcc.Graph(id='map', figure=map_fig)],
+        fullscreen=True,  # Full-screen spinner
+        style={
+            'fontSize': '50px',  # Increase size of the spinner
+            'color': '#343a40',  # Darker color (Bootstrap dark color)
+            'display': 'flex',  # Use flex to center the spinner
+            'alignItems': 'center',  # Center vertically
+            'justifyContent': 'center'  # Center horizontally
+        }
+    )
+]),
+
     
     dbc.Modal([
         dbc.ModalHeader("Details"),
