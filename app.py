@@ -186,6 +186,7 @@ app.layout = html.Div([
         fullscreen=True,  # Full-screen spinner
         style={
             'fontSize': '250px',  # Increase size of the spinner
+            'transform': 'scale(2)',
             'color': '#112840',  # Darker color (Bootstrap dark color)
             'display': 'flex',  # Use flex to center the spinner
             'alignItems': 'center',  # Center vertically
