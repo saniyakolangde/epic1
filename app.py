@@ -223,8 +223,27 @@ app.layout = html.Div([
     #     )
     # ], style={'width': '40%', 'margin': '0 auto'}),
 
+    # html.Div([
+    #     dcc.Graph(id='map', figure=map_fig)]),
+
     html.Div([
-        dcc.Graph(id='map', figure=map_fig)]),
+        dcc.Loading(
+            id="loading-spinner",
+            type="circle",  # You can change this to "default" or "cube" for other spinner styles
+            fullscreen=True,  # If you want it to cover the whole page
+            children=[
+                dcc.Graph(id='map', figure=map_fig)
+            ],
+            style={
+                'position': 'absolute', 'zIndex': 9999, 'width': '100%',
+                'height': '100%', 'display': 'flex', 'justifyContent': 'center',
+                'alignItems': 'center'
+            },
+        )
+    ]),
+
+
+    
     # html.Div([
     #         dcc.Graph(id='map', figure=map_fig)])
 
