@@ -243,7 +243,8 @@ app.layout = html.Div([
             'justifyContent': 'center',
             'alignItems': 'center',
             'zIndex': 9999,
-            'transform': 'scale(3)',  # Scale the spinner to 2x its size
+            'transform': 'scale(5)',  # Scale the spinner to 2x its size
+            'marginTop': '90px',
         },
     )
 ], style={'height': '400px', 'position': 'relative'}),
