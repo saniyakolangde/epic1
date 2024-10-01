@@ -236,12 +236,12 @@ app.layout = html.Div([
         ],
         style={
             'position': 'relative',  # Relative to the parent div
-            'minHeight': '400px',  # Ensure div doesn't collapse
+            'minHeight': '200px',  # Ensure div doesn't collapse
             'display': 'flex',
             'justifyContent': 'center',
             'alignItems': 'center',
-            'transform': 'scale(4)',  # Scale the spinner to 2x its size
-            'marginTop': '90px',
+            'transform': 'scale(3.5)',  # Scale the spinner to 2x its size
+            'marginTop': '110px',
         },
     )
 ], style={'height': '200px', 'position': 'relative'}),
