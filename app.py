@@ -236,13 +236,10 @@ app.layout = html.Div([
         ],
         style={
             'position': 'relative',  # Relative to the parent div
-            'width': '100%',
-            'height': '100%',
             'minHeight': '400px',  # Ensure div doesn't collapse
             'display': 'flex',
             'justifyContent': 'center',
             'alignItems': 'center',
-            'zIndex': 9999,
             'transform': 'scale(5)',  # Scale the spinner to 2x its size
             'marginTop': '90px',
         },
