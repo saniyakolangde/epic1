@@ -240,11 +240,11 @@ app.layout = html.Div([
             'display': 'flex',
             'justifyContent': 'center',
             'alignItems': 'center',
-            'transform': 'scale(5)',  # Scale the spinner to 2x its size
+            'transform': 'scale(4)',  # Scale the spinner to 2x its size
             'marginTop': '90px',
         },
     )
-], style={'height': '400px', 'position': 'relative'}),
+], style={'height': '200px', 'position': 'relative'}),
 
 
 
