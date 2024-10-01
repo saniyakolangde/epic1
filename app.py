@@ -246,7 +246,7 @@ app.layout = html.Div([
             'transform': 'scale(3)',  # Scale the spinner to 2x its size
         },
     )
-], style={'height': '400px', 'position': 'relative'})
+], style={'height': '400px', 'position': 'relative'}),
 
 
 
