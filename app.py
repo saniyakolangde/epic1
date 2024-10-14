@@ -30,13 +30,13 @@ from sqlalchemy import create_engine
 
 # Define your connection string
 connection_string = (
-    "mysql+pymysql://admin:password@database-main2.cx2moqkoe6wp.ap-southeast-2.rds.amazonaws.com:3306/harmonyHub"
+    "mysql+pymysql://admin:password@ta02db.cx2moqkoe6wp.ap-southeast-2.rds.amazonaws.com:3306/harmonyHub"
 )
 # Create an SQLAlchemy engine
 engine = create_engine(connection_string)
 
 conn = pymysql.connect(
-    host='database-main2.cx2moqkoe6wp.ap-southeast-2.rds.amazonaws.com',
+    host='ta02db.cx2moqkoe6wp.ap-southeast-2.rds.amazonaws.com',
     port=3306,
     user='admin',
     password='password',
